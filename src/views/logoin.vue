@@ -53,11 +53,14 @@ methods:{
                   data:this.form
                       
                   
-              }).then(({data: {data, meta}}) => {
-                  if(meta.status===200){
-                      localStorage.setItem("token",data.token);
-                      this.$router.push("/home")
-                  }
+              }).then(({data:{data,meta}}) => {
+                 if(meta.status===200){
+                   this.$router.push('/home')
+                   localStorage.setItem('token',data.token)
+                 }else{
+                   alert('账号或密码错误')
+                   
+                 }
               })
           } 
         });
